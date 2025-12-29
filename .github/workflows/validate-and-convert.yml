@@ -7,6 +7,10 @@ on:
     paths:
       - "input-json/*.json"
 
+# 👇 REQUIRED to allow git push from GitHub Actions
+permissions:
+  contents: write
+
 jobs:
   validate-and-convert:
     runs-on: ubuntu-latest
