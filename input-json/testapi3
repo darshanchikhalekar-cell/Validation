@@ -1,5 +1,5 @@
 {
-  "api_name": "TestApi3",
+  "api_name": "testapi3",
   "version": "v1",
   "owner": "payments-team",
   "environment": "dev",
