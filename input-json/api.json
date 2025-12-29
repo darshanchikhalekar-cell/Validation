@@ -1,5 +1,5 @@
 {
-  "api_name": "customer-api1",
+  "api_name": "customer-api",
   "version": "v1",
   "owner": "payments-team",
   "environment": "dev",
