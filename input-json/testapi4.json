@@ -1,0 +1,35 @@
+{
+  "api_name": "testapi4",
+  "version": "v1",
+  "owner": "payments-team",
+  "environment": "dev",
+  "base_path": "/customer",
+  "protocols": ["https"],
+  "timeout": 30000,
+  "rate_limit": {
+    "enabled": true,
+    "requests_per_minute": 1000
+  },
+  "authentication": {
+    "type": "key-auth",
+    "header": "x-api-key"
+  },
+  "upstream": {
+    "host": "customer-backend.internal",
+    "port": 8080,
+    "path": "/api"
+  },
+  "routes": [
+    {
+      "name": "get-customers",
+      "methods": ["GET"],
+      "path": "/customers"
+    },
+    {
+      "name": "create-customer",
+      "methods": ["POST"],
+      "path": "/customers"
+    }
+  ],
+  "tags": ["kong", "api", "customer"]
+}
