@@ -2,20 +2,20 @@ import json
 import yaml
 from pathlib import Path
 
-# Define paths
-input_file = Path("input-json/api.json")
+input_dir = Path("input-json")
 output_dir = Path("generated-yaml")
-output_file = output_dir / "api.yaml"
 
 # Create output directory if it does not exist
 output_dir.mkdir(parents=True, exist_ok=True)
 
-# Load JSON
-with open(input_file, "r") as f:
-    data = json.load(f)
+# Loop through all JSON files
+for json_file in input_dir.glob("*.json"):
+    with open(json_file, "r") as f:
+        data = json.load(f)
 
-# Write YAML
-with open(output_file, "w") as f:
-    yaml.dump(data, f, sort_keys=False)
+    yaml_file = output_dir / f"{json_file.stem}.yaml"
 
-print(f"JSON validated and converted to YAML: {output_file}")
+    with open(yaml_file, "w") as f:
+        yaml.dump(data, f, sort_keys=False)
+
+    print(f"Converted {json_file} -> {yaml_file}")
